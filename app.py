@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, url_for
 from flask_wtf import FlaskForm
 from flask_restful import Api, Resource
 
@@ -40,7 +40,7 @@ api.add_resource(This_is_patch_methode, "/patchelement/<int:id>/<string:newval>"
 @app.route("/")
 def home():
 
-    return render_template("index.html", entity = mylist)
+    return render_template("index.html", entity = mylist, addr = url_for('home', _external = True))
 
 
 if __name__ == "__main__":

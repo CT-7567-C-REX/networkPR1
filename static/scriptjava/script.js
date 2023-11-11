@@ -1,10 +1,13 @@
+
+
+// put method triger
 const btnEL = document.querySelector('.addButton');
 const inputEL = document.querySelector('.textInput');
 const statusEL = document.querySelector('.statusone');
 
 const clickHandler = () => {
     const inputValue = inputEL.value;
-    fetch(`http://192.168.1.115:8080/putelement/${encodeURIComponent(inputValue)}`, {
+    fetch(`${ipAddress}/putelement/${encodeURIComponent(inputValue)}`, {
         method: 'PUT',
     })
     .then((response) => {
@@ -18,15 +21,16 @@ const clickHandler = () => {
     })
 };
 btnEL.addEventListener('click', clickHandler);
+//end of put method triger
 
-
+//delete methode triger
 const delbtnEL = document.querySelector('.deleteButton');
 const delinputEL = document.querySelector('.textInputdelete');
 const delstatusEL = document.querySelector('.statustwo');
 
 const delclickHandler = () => {
     const delinputValue = delinputEL.value;
-    fetch(`http://192.168.1.115:8080/deletelement/${encodeURIComponent(delinputValue)}`, {
+    fetch(`${ipAddress}/deletelement/${encodeURIComponent(delinputValue)}`, {
         method: 'DELETE',
     })
     .then((response) => {
@@ -40,3 +44,5 @@ const delclickHandler = () => {
     })
 };
 delbtnEL.addEventListener('click', delclickHandler);
+//end of delete methode triger
+
