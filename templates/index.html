@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <link rel="shortcut icon" href="#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet">
+    <title>title</title>
+
+
+</head>
+<body>
+    <img src="{{url_for('static', filename='images/khas.png')}}" alt="">
+    <div>
+        <input type="text" class="textInput" placeholder="Enter text">
+        <button class="addButton">Add Element</button>
+        <p class="statusone">  status code will be displayed here</p>
+    </div>
+    <div>
+        <input type="text" class="textInputdelete" placeholder="delete the element in the inputed index">
+        <button class="deleteButton">Delete Element</button>
+        <p class="statustwo">  status code will be displayed here</p>
+    </div>
+
+    {{entity}}
+
+
+    <script src="{{ url_for('static', filename='scriptjava/script.js')}}"></script>
+</body>
+</html>
+
+
