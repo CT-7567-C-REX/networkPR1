@@ -2,31 +2,53 @@
 <html lang="tr">
 <head>
     <script>
-        var ipAddress = "{{ addr }}";  // Define the IP address variable
+        var ipAddress = "{{ addr }}";
     </script>
     <link rel="shortcut icon" href="#">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet">
-    <title>title</title>
-
+    <title>Network PR-1</title>
 
 </head>
 <body>
-    <img src="{{url_for('static', filename='images/khas.png')}}" alt="">
-    <div>
+    <h1>Network Project 1</h1>
+    <div style="background-color: antiquewhite; padding: 1%;">
         <input type="text" class="textInput" placeholder="Enter text">
         <button class="addButton">Add Element</button>
         <p class="statusone">  status code will be displayed here</p>
     </div>
-    <div>
-        <input type="text" class="textInputdelete" placeholder="delete the element in the inputed index">
+    <div style="background-color: aliceblue; padding: 1%;">
+        <input type="text" class="textInputdelete" placeholder="delete the element">
         <button class="deleteButton">Delete Element</button>
-        <p class="statustwo">  status code will be displayed here</p>
+        <p class="statustwo">status code will be displayed here</p>
     </div>
-
-    {{entity}}
-
+    <div style="background-color: antiquewhite; padding: 1%;">
+        <input type="number" class="textInputpatchone" placeholder="modify an index">
+        <input type="text" class="textInputpatch" placeholder="enter the index">
+        <button class="patchteButton">Patch Element</button>
+        <p class="statusthree"> status code will be displayed here</p>
+    </div>
+    <div style="background-color: aliceblue; padding: 1%;">
+        <form method="POST" action="{{ url_for('posthandler') }}">
+            {{ form.hidden_tag() }}
+            <div class="">
+                {{form.index.label()}}
+                {{form.index()}}
+                {{form.addable.label()}}
+                {{form.addable()}}
+                {{form.submit()}}
+            </div>
+        </form>
+    </div>
+    <div style="padding: 1%; background-color: antiquewhite;">
+        <a href="{{ url_for('posthandler') }}">cause 405</a>
+    </div>
+    <div style="padding: 1%; background-color:aliceblue;">
+        <button class="getbtn">get the list Element</button>
+        <ul>
+        </ul>
+        <p class="statusget">status code will be displayed here</p>
+    </div>
 
     <script src="{{ url_for('static', filename='scriptjava/script.js')}}"></script>
 </body>
